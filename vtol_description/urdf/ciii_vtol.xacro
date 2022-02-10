@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot name="ciii1dvtol" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find vtol_description)/urdf/material.xacro" />
+    <xacro:include filename="$(find vtol_description)/urdf/lateral.xacro" />
+    <xacro:include filename="$(find vtol_description)/urdf/params.xacro" />
+
+    <!-- Base -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://vtol_description/meshes/base.stl" />
+            </geometry>
+            <material name="brown" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${B_z / 2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${B_x} ${B_y} ${B_z}" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="${B_mass}" />
+            <inertia ixx="${B_Ixx}" ixy="0" ixz="0" 
+                iyy="${B_Iyy}" iyz="0" izz="${B_Izz}" />
+        </inertial>
+    </link>
+
+    <!-- Laterals -->
+    <xacro:vtol_lateral name="front" origin_xyz="0 -0.019 0.150" />
+    <xacro:vtol_lateral name="rear" origin_xyz="0  0.019 0.150" />
+
+    <!-- Crossbar -->
+    <link name="crossbar_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://vtol_description/meshes/crossbar.stl" />
+            </geometry>
+            <material name="brown" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${C_z / 2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${C_x} ${C_y} ${C_z}" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="${C_mass}" />
+            <inertia ixx="${C_Ixx}" ixy="0" ixz="0" 
+                iyy="${C_Iyy}" iyz="0" izz="${C_Izz}" />
+        </inertial>
+    </link>
+    <joint name="crossbar_joint" type="fixed">
+        <origin xyz="0 0 0.111" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="crossbar_link" />
+    </joint>
+
+</robot>

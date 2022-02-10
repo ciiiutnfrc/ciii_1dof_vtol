@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find vtol_description)/urdf/params.xacro" />
+
+    <!-- Macro for CIII-1D-VTOL laterals -->
+    <xacro:macro name="vtol_lateral" params="name origin_xyz">
+        <link name="${name}_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://vtol_description/meshes/lateral.stl" />
+                </geometry>
+                <material name="brown" />
+            </visual>
+            <collision>
+                <origin xyz="0 0 ${(-L_z / 2) + 0.020}" rpy="0 0 0" />
+                <geometry>
+                    <box size="${L_x} ${L_y} ${L_z}" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="${L_mass}" />
+                <inertia ixx="${L_Ixx}" ixy="0" ixz="0" 
+                    iyy="${L_Iyy}" iyz="0" izz="${L_Izz}" />
+            </inertial>
+        </link>
+        <joint name="${name}_joint" type="fixed">
+            <origin xyz="${origin_xyz}" rpy="0 0 0" />
+            <parent link="base_link" />
+            <child link="${name}_link" />
+        </joint>
+    </xacro:macro>
+
+</robot>

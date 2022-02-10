@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Density so that the base weights more that 10 Kg -->
+    <xacro:property name="rho_B" value="100.0" />
+
+    <!-- Density of MDF: 600-800 Kg/m^3 -->
+    <xacro:property name="rho_mdf" value="0.7" />
+
+    <!-- Base -->
+    <xacro:property name="B_x" value="0.200" />
+    <xacro:property name="B_y" value="0.060" />
+    <xacro:property name="B_z" value="0.009" />
+    <xacro:property name="B_vol" value="${B_x * B_y * B_z}" />
+    <xacro:property name="B_mass" value="${1000.0 * B_vol * rho_B}" />
+    <xacro:property name="B_Ixx" value="${(1/12) * B_mass * (B_y**2 + B_z**2)}" />
+    <xacro:property name="B_Iyy" value="${(1/12) * B_mass * (B_x**2 + B_z**2)}" />
+    <xacro:property name="B_Izz" value="${(1/12) * B_mass * (B_x**2 + B_y**2)}" />
+
+    <!-- Laterals -->
+    <xacro:property name="L_x" value="0.050" />
+    <xacro:property name="L_y" value="0.009" />
+    <xacro:property name="L_z" value="0.170" />
+    <xacro:property name="L_vol" value="${L_x * L_y * L_z}" />
+    <xacro:property name="L_mass" value="${1000.0 * L_vol * rho_mdf}" />
+    <xacro:property name="L_Ixx" value="${(1/12) * L_mass * (L_y**2 + L_z**2)}" />
+    <xacro:property name="L_Iyy" value="${(1/12) * L_mass * (L_x**2 + L_z**2)}" />
+    <xacro:property name="L_Izz" value="${(1/12) * L_mass * (L_x**2 + L_y**2)}" />
+
+</robot>

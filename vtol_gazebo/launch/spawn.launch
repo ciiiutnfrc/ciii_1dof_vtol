@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  
+  <arg name="name" default="ciiivtol" />
+
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0.5" />
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find vtol_description)/urdf/ciii_vtol.xacro'" />
+
+  <node pkg="gazebo_ros" type="spawn_model" name="vtol_spawn" output="screen"
+    args="-urdf -param robot_description -model $(arg name)
+    -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+</launch>
