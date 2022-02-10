@@ -1,0 +1,7 @@
+*.FCStd1
+*.fcstd1
+
+# Text editors
+*~
+*.swp
+
