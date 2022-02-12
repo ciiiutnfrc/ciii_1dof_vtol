@@ -27,4 +27,13 @@
     <xacro:property name="L_Iyy" value="${(1/12) * L_mass * (L_x**2 + L_z**2)}" />
     <xacro:property name="L_Izz" value="${(1/12) * L_mass * (L_x**2 + L_y**2)}" />
 
+    <!-- Crossbar -->
+    <xacro:property name="C_x" value="0.050" />
+    <xacro:property name="C_y" value="0.047" />
+    <xacro:property name="C_z" value="0.009" />
+    <xacro:property name="C_vol" value="${C_x * C_y * C_z}" />
+    <xacro:property name="C_mass" value="${1000.0 * C_vol * rho_mdf}" />
+    <xacro:property name="C_Ixx" value="${(1/12) * C_mass * (C_y**2 + C_z**2)}" />
+    <xacro:property name="C_Iyy" value="${(1/12) * C_mass * (C_x**2 + C_z**2)}" />
+    <xacro:property name="C_Izz" value="${(1/12) * C_mass * (C_x**2 + C_y**2)}" />
 </robot>

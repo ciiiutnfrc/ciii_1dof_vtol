@@ -1,9 +1,21 @@
 <?xml version="1.0"?>
 <robot name="ciii1dvtol" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <!-- Import RViz colors -->
     <xacro:include filename="$(find vtol_description)/urdf/material.xacro" />
-    <xacro:include filename="$(find vtol_description)/urdf/lateral.xacro" />
+
+    <!-- Gazebo elements (colors) -->
+    <xacro:include filename="$(find vtol_description)/urdf/ciii_vtol.gazebo" />
+
+    <!-- Robot parameters file -->
     <xacro:include filename="$(find vtol_description)/urdf/params.xacro" />
+
+    <!-- Macro for VTOL lateral parts -->
+    <xacro:include filename="$(find vtol_description)/urdf/lateral.xacro" />
+
+
+    <!-- Fixed world link -->
+    <link name="world_link" />
 
     <!-- Base -->
     <link name="base_link">
@@ -27,6 +39,10 @@
                 iyy="${B_Iyy}" iyz="0" izz="${B_Izz}" />
         </inertial>
     </link>
+    <joint name="world_link" type="fixed">
+        <parent link="world_link" />
+        <child link="base_link" />
+    </joint>
 
     <!-- Laterals -->
     <xacro:vtol_lateral name="front" origin_xyz="0 -0.019 0.150" />

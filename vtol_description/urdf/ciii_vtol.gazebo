@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Gazebo materials -->
+    <gazebo reference="base_link">
+        <material>Gazebo/Wood</material>
+    </gazebo>
+    <gazebo reference="front_link">
+        <material>Gazebo/Wood</material>
+    </gazebo>
+    <gazebo reference="rear_link">
+        <material>Gazebo/Wood</material>
+    </gazebo>
+    <gazebo reference="crossbar_link">
+        <material>Gazebo/Wood</material>
+    </gazebo>
+
+</robot>
