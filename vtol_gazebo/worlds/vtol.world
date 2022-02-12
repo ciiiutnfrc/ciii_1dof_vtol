@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version='1.7'>
+
+  <!-- Custom world so that the camera viewpoint is correct -->
+  <world name="default">
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>-0.118406 -0.503328 0.220152 0 0.243643 1.3202</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+  </world>
+</sdf>

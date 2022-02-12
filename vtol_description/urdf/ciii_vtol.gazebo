@@ -14,5 +14,8 @@
     <gazebo reference="crossbar_link">
         <material>Gazebo/Wood</material>
     </gazebo>
+    <gazebo reference="support_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
 </robot>
