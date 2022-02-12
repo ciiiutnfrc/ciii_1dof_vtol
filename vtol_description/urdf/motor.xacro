@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="motor_r" value="0.01325" />
+    <xacro:property name="motor_h" value="0.034" />
+    <xacro:property name="motor_mass" value="0.200" />
+
+    <!-- Macro for VTOL motor -->
+    <xacro:macro name="motor" params="name origin_xyz">
+        <link name="${name}_link">
+            <visual>
+                <origin xyz="0 0 -0.0065" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://vtol_description/meshes/tiger_mt2216.stl" />
+                    <!--
+                    <cylinder radius="${motor_r}" length="${motor_h}" />
+                    -->
+                </geometry>
+                <material name="gray" />
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="${motor_r}" length="${motor_h}" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="${motor_mass}" />
+                <inertia ixx="${(1/12) * motor_mass * motor_h**2}" ixy="0" ixz="0" 
+                    iyy="${(1/12) * motor_mass * motor_h**2}" iyz="0" izz="${(1/2) * motor_mass * motor_r**2}" />
+            </inertial>
+        </link>
+        <joint name="${name}_join" type="fixed">
+            <origin xyz="${origin_xyz}" rpy="0 0 0" />
+            <parent link="bar_link" />
+            <child link="${name}_link" />
+        </joint>
+    </xacro:macro>
+
+</robot>

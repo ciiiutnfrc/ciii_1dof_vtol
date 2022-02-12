@@ -47,4 +47,5 @@
     <xacro:property name="MB_mass" value="${1000.0 * MB_vol * MB_rho}" />
     <xacro:property name="MB_Ixx" value="${(1/12) * MB_mass * 2 * MB_w_out**2}" />
     <xacro:property name="MB_Iyy" value="${(1/12) * MB_mass * (MB_w_out**2 + MB_L**2)}" />
+
 </robot>

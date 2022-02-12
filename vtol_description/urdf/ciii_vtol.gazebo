@@ -17,5 +17,11 @@
     <gazebo reference="support_link">
         <material>Gazebo/Blue</material>
     </gazebo>
+    <gazebo reference="lmotor_link">
+        <material>Gazebo/Gray</material>
+    </gazebo>
+    <gazebo reference="rmotor_link">
+        <material>Gazebo/Gray</material>
+    </gazebo>
 
 </robot>
