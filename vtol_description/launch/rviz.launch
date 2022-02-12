@@ -7,10 +7,9 @@
   <param name="robot_description" command="$(find xacro)/xacro '$(find vtol_description)/urdf/ciii_vtol.xacro'" />
 
   <!-- Start nodes: joint_state_publisher, robot_state publisher, joint_state_publisher_gui and rviz -->
-  <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
-
   <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
 
+  <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" unless="$(arg gui)" />
   <node pkg="joint_state_publisher_gui" name="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg gui)" />
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find vtol_description)/rviz/ciii_vtol.rviz" />

@@ -59,15 +59,19 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        as_link:
+        bar_link:
           Value: true
         base_link:
           Value: true
-        cb_link:
+        crossbar_link:
           Value: true
         front_link:
           Value: true
         rear_link:
+          Value: true
+        support_link:
+          Value: true
+        world_link:
           Value: true
       Marker Alpha: 1
       Marker Scale: 0.25
@@ -76,15 +80,17 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          as_link:
-            {}
-          cb_link:
-            {}
-          front_link:
-            {}
-          rear_link:
-            {}
+        world_link:
+          base_link:
+            crossbar_link:
+              {}
+            front_link:
+              {}
+            rear_link:
+              {}
+            support_link:
+              bar_link:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -97,7 +103,7 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        as_link:
+        bar_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -107,7 +113,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        cb_link:
+        crossbar_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -122,6 +128,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        support_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -156,7 +171,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.48451316356658936
+      Distance: 0.5426547527313232
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -172,9 +187,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.40039852261543274
+      Pitch: 0.49539846181869507
       Target Frame: <Fixed Frame>
-      Yaw: 5.328541278839111
+      Yaw: 4.358524799346924
     Saved: ~
 Window Geometry:
   Displays:

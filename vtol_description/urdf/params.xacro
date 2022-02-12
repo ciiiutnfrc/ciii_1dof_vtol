@@ -36,4 +36,15 @@
     <xacro:property name="C_Ixx" value="${(1/12) * C_mass * (C_y**2 + C_z**2)}" />
     <xacro:property name="C_Iyy" value="${(1/12) * C_mass * (C_x**2 + C_z**2)}" />
     <xacro:property name="C_Izz" value="${(1/12) * C_mass * (C_x**2 + C_y**2)}" />
+
+    <!-- Main bar -->
+    <xacro:property name="MB_rho" value="2.7" />
+    <xacro:property name="MB_w_out" value="0.020" />
+    <xacro:property name="MB_thickness" value="0.0016" />
+    <xacro:property name="MB_w_in" value="${MB_w_out - 2*MB_thickness}" />
+    <xacro:property name="MB_L" value="0.500" />
+    <xacro:property name="MB_vol" value="${(MB_w_out**2 - MB_w_in**2) * MB_L}" />
+    <xacro:property name="MB_mass" value="${1000.0 * MB_vol * MB_rho}" />
+    <xacro:property name="MB_Ixx" value="${(1/12) * MB_mass * 2 * MB_w_out**2}" />
+    <xacro:property name="MB_Iyy" value="${(1/12) * MB_mass * (MB_w_out**2 + MB_L**2)}" />
 </robot>

@@ -8,5 +8,8 @@
     <material name="blue">
         <color rgba="0 0 ${200/255} 1" />
     </material>
+    <material name="white" >
+        <color rgba="1 1 1 1" />
+    </material>
 
 </robot>
