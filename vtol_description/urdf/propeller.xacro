@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="prop_r" value="0.127" />
+    <xacro:property name="prop_h" value="0.010" />
+    <xacro:property name="prop_offset" value="0.025" />
+
+    <!-- Macro for VTOL propeller -->
+    <xacro:macro name="propeller" params="name parent">
+        <link name="${name}_link">
+            <visual>
+                <origin xyz="0 0 ${prop_offset}" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://vtol_description/meshes/propeller_10inch.stl" />
+                </geometry>
+                <material name="yellow" />
+            </visual>
+            <collision>
+                <origin xyz="0 0 ${prop_offset}" rpy="0 0 0" />
+                <geometry>
+                    <cylinder radius="${prop_r}" length="${prop_h}" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="0.100" />
+                <inertia ixx="0.0001" ixy="0" ixz="0" 
+                    iyy="0.0001" iyz="0" izz="0.001" />
+            </inertial>
+        </link>
+        <joint name="${name}_join" type="continuous">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <parent link="${parent}_link" />
+            <child link="${name}_link" />
+            <axis xyz="0 0 1" />
+        </joint>
+    </xacro:macro>
+
+</robot>

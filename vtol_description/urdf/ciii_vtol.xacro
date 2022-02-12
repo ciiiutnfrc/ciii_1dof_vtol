@@ -10,11 +10,10 @@
     <!-- Robot parameters file -->
     <xacro:include filename="$(find vtol_description)/urdf/params.xacro" />
 
-    <!-- Macro for VTOL lateral parts -->
+    <!-- Macro for VTOL parts (lateral, motor and propeller -->
     <xacro:include filename="$(find vtol_description)/urdf/lateral.xacro" />
-
-    <!-- Macro for brushless motors -->
     <xacro:include filename="$(find vtol_description)/urdf/motor.xacro" />
+    <xacro:include filename="$(find vtol_description)/urdf/propeller.xacro" />
 
 
     <!-- Fixed world link -->
@@ -138,8 +137,12 @@
         <child link="bar_link" />
     </joint>
 
-    <!-- Left & Right motor -->
+    <!-- Left & Right motors -->
     <xacro:motor name="lmotor" origin_xyz="-0.225 0 0.0435" />
     <xacro:motor name="rmotor" origin_xyz="0.225 0 0.0435" />
+
+    <!-- Left & Right propellers -->
+    <xacro:propeller name="lprop" parent="lmotor" />
+    <xacro:propeller name="rprop" parent="rmotor" />
 
 </robot>

@@ -23,5 +23,11 @@
     <gazebo reference="rmotor_link">
         <material>Gazebo/Gray</material>
     </gazebo>
+    <gazebo reference="lprop_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+    <gazebo reference="rprop_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
 
 </robot>

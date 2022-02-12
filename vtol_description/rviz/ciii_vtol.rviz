@@ -67,7 +67,15 @@ Visualization Manager:
           Value: true
         front_link:
           Value: true
+        lmotor_link:
+          Value: true
+        lprop_link:
+          Value: true
         rear_link:
+          Value: true
+        rmotor_link:
+          Value: true
+        rprop_link:
           Value: true
         support_link:
           Value: true
@@ -90,7 +98,12 @@ Visualization Manager:
               {}
             support_link:
               bar_link:
-                {}
+                lmotor_link:
+                  lprop_link:
+                    {}
+                rmotor_link:
+                  rprop_link:
+                    {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -123,7 +136,27 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        lmotor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lprop_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         rear_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rmotor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rprop_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -171,7 +204,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.5426547527313232
+      Distance: 0.6807060837745667
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -179,17 +212,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.018350794911384583
-        Y: 0.047519560903310776
-        Z: 0.03572486340999603
+        X: -0.028125882148742676
+        Y: 0.07969795167446136
+        Z: 0.07850369811058044
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.49539846181869507
+      Pitch: 0.530398428440094
       Target Frame: <Fixed Frame>
-      Yaw: 4.358524799346924
+      Yaw: 4.278522968292236
     Saved: ~
 Window Geometry:
   Displays:

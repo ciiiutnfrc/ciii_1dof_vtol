@@ -14,5 +14,8 @@
     <material name="gray">
         <color rgba="${80/255} ${80/255} ${80/255} 1" />
     </material>
+    <material name="yellow">
+        <color rgba="${255/255} ${220/255} ${0/255} 1" />
+    </material>
 
 </robot>
