@@ -1,0 +1,13 @@
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 10
+
+joint_motor_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints:
+        - lprop_joint
+        - rprop_joint
+
+gazebo_ros_control/pid_gains:
+    lprop_joint: {p: 1, i: 0.1, d: 0}
+    rprop_joint: {p: 1, i: 0.1, d: 0}
