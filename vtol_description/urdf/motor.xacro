@@ -30,7 +30,7 @@
                     iyy="${(1/12) * motor_mass * motor_h**2}" iyz="0" izz="${(1/2) * motor_mass * motor_r**2}" />
             </inertial>
         </link>
-        <joint name="${name}_join" type="fixed">
+        <joint name="${name}_joint" type="fixed">
             <origin xyz="${origin_xyz}" rpy="0 0 0" />
             <parent link="bar_link" />
             <child link="${name}_link" />
