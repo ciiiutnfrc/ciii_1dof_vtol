@@ -54,12 +54,24 @@
     </transmission>
 
     <!-- Gazebo ROS control plugin -->
-	<gazebo>
-		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-			<robotNameSpace>ciiivtol</robotNameSpace>
-			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/vtol</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
-	</gazebo>
+    </gazebo>
+
+    <!--Publish joint state from Gazebo-->
+    <gazebo>
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+            <robotNamespace>/vtol</robotNamespace>
+            <jointName>
+                support_joint
+            </jointName>
+            <updateRate>50</updateRate>
+            <alwaysOn>true</alwaysOn>
+        </plugin>
+    </gazebo>
 
 	<!-- Define the LiftDrag plugin -->
     <gazebo>
@@ -84,7 +96,6 @@
 
 	<!-- Define the LiftDrag plugin -->
 	<gazebo>
-		<!-- Provide a Negative Velocity -->
 		<plugin name="right_propeller" filename="libLiftDragPlugin.so">
 			<a0>0.1</a0>
 			<cla>0.1</cla>
@@ -98,7 +109,7 @@
 			<area>0.050671</area>
 			<air_density>1.2041</air_density>
 			<forward>1 0 0</forward>
-			<upward>0 0 -1</upward>
+			<upward>0 0 1</upward>
 			<link_name>rprop_link</link_name>
 			<control_joint>rprop_joint</control_joint>
 		</plugin>

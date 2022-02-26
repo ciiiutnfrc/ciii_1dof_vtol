@@ -1,6 +1,12 @@
+# Publishes the state of all resources registered to a hardware_interface::JointStateInterface 
+# to a topic of type sensor_msgs/JointState. 
 joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 10
+
+    #    extra_joints:
+    #        - {name: support_joint}
+    #        - {name: support_joint, position: 1.0}
 
 joint_motor_controller:
     type: velocity_controllers/JointGroupVelocityController
