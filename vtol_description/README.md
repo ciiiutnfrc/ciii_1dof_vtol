@@ -1,4 +1,4 @@
-# Descripción URDF
+# Descripción del balancín
 
 Para visualizar el modelo del balancín ejecutar:
 
