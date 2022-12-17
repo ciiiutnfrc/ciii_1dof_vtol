@@ -4,9 +4,6 @@
     <!-- Import RViz colors -->
     <xacro:include filename="$(find vtol_description)/urdf/material.xacro" />
 
-    <!-- Gazebo elements (colors) -->
-    <xacro:include filename="$(find vtol_description)/urdf/ciii_vtol.gazebo" />
-
     <!-- Robot parameters file -->
     <xacro:include filename="$(find vtol_description)/urdf/params.xacro" />
 
@@ -15,6 +12,8 @@
     <xacro:include filename="$(find vtol_description)/urdf/motor.xacro" />
     <xacro:include filename="$(find vtol_description)/urdf/propeller.xacro" />
 
+    <!-- Gazebo elements materials and plugins -->
+    <xacro:include filename="$(find vtol_description)/urdf/ciii_vtol.gazebo" />
 
     <!-- Fixed world link -->
     <link name="world_link" />
@@ -145,5 +144,32 @@
     <!-- Left & Right propellers -->
     <xacro:propeller name="lprop" parent="lmotor" />
     <xacro:propeller name="rprop" parent="rmotor" />
+
+    <!-- IMU sensor -->
+    <link name="imu_link">
+        <visual xyz="0 0 0" rpy="0 0 0">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.02 0.02 0.01" />
+            </geometry>
+            <material name="gray" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.02 0.02 0.01" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.001" />
+            <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+        </inertial>
+    </link>
+    <joint name="imu_joint" type="fixed">
+        <origin xyz="0 0 0.05" />
+        <parent link="bar_link" />
+        <child link="imu_link" />
+    </joint>
 
 </robot>
